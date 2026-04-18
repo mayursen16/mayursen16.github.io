@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MayurIoT Smart Starter | Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600&family=Teko:wght@600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Electric Blue & Neon Red Theme Variables */
+        :root {
+            --bg-dark: #050505;
+            --electric-blue: #00e5ff;
+            --electric-blue-glow: rgba(0, 229, 255, 0.25);
+            --neon-red: #ff2a5f;
+            --neon-red-glow: rgba(255, 42, 95, 0.25);
+            --card-surface: rgba(15, 20, 30, 0.75);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            /* The Dark Twist: Dual radial gradients in the background */
+            background-image: 
+                radial-gradient(circle at top left, rgba(0, 229, 255, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at bottom right, rgba(255, 42, 95, 0.1) 0%, transparent 40%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        /* Top Header */
+        header {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        header h1 {
+            font-family: 'Teko', sans-serif;
+            font-size: 6rem; 
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Splitting the Brand Colors */
+        .brand-blue {
+            color: var(--electric-blue);
+            text-shadow: 0 0 25px var(--electric-blue-glow);
+        }
+        .brand-red {
+            color: var(--neon-red);
+            text-shadow: 0 0 25px var(--neon-red-glow);
+        }
+
+        header p {
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Container for all products */
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6rem;
+            padding-bottom: 5rem;
+        }
+
+        /* Individual Product Card with Dual Borders */
+        .product-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 4rem;
+            background: var(--card-surface);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            /* Electric Blue on Left, Neon Red on Right */
+            border-left: 3px solid var(--electric-blue);
+            border-right: 3px solid var(--neon-red);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* Hover Effect: Lifts up and projects dual-colored shadows */
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                -15px 15px 40px var(--electric-blue-glow), 
+                15px -15px 40px var(--neon-red-glow),
+                0 20px 40px rgba(0,0,0,0.9);
+        }
+
+        /* Picture on the Left */
+        .product-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.9);
+            border: 1px solid rgba(255,255,255,0.05);
+            background: #000;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.02);
+        }
+
+        /* Explanation on the Right */
+        .product-info {
+            flex: 1.2;
+        }
+
+        .product-info h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-info p.description {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Settings List */
+        .settings-list {
+            list-style: none;
+        }
+
+        .settings-list li {
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+
+        .settings-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .settings-list span {
+            color: var(--electric-blue);
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.3rem;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+            letter-spacing: 1.5px;
+        }
+
+        /* Adds a subtle red dot next to the blue feature titles */
+        .settings-list span::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--neon-red);
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px var(--neon-red);
+            transform: translateY(-2px);
+        }
+
+        /* ================= RESPONSIVE MOBILE OPTIMIZATION ================= */
+        
+        @media (max-width: 900px) {
+            .product-card {
+                flex-direction: column;
+                padding: 2rem;
+                gap: 2.5rem;
+            }
+            .portfolio-container { gap: 4rem; }
+            header h1 { font-size: 4.5rem; }
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            header { margin-top: 1rem; margin-bottom: 3rem; }
+            header h1 { font-size: 3.8rem; line-height: 1.1; }
+            header p { font-size: 1.1rem; padding: 0 1rem; }
+            .portfolio-container { gap: 3rem; }
+            .product-card { padding: 1.25rem; gap: 1.5rem; border-radius: 16px; border-left-width: 2px; border-right-width: 2px;}
+            .product-info h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+            .product-info p.description { font-size: 0.95rem; margin-bottom: 1.5rem; }
+            .settings-list li { font-size: 0.9rem; margin-bottom: 1rem; padding-bottom: 1rem; }
+            .settings-list span { font-size: 1.1rem; }
+            .settings-list span::before { width: 6px; height: 6px; margin-right: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><span class="brand-blue">MAYUR</span><span class="brand-red">IOT</span></h1>
+        <p>Smart Motor Starter & Industrial UI</p>
+    </header>
+
+    <div class="portfolio-container">
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="SSSWMS Motor starter home page.jpg" alt="Motor Starter Dashboard">
+            </div>
+            <div class="product-info">
+                <h2>Live Telemetry Dashboard</h2>
+                <p class="description">The central operating interface designed for instantaneous motor control and real-time electrical load monitoring.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>ACTIVE LOAD MONITORING</span><br> 
+                        Continuously tracks live amperage draw (e.g., 1.6A) directly on the edge, providing instant feedback on pump health.
+                    </li>
+                    <li>
+                        <span>QUICK START TIMERS</span><br> 
+                        One-touch presets (3m, 5m, 10m) engineered for field operators to quickly initiate safe, time-restricted irrigation cycles.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="SSSWMS Motor starter protection and quick timer.jpg" alt="Overload Protection Config">
+            </div>
+            <div class="product-info">
+                <h2>Smart Overload Protection</h2>
+                <p class="description">Industrial-grade safety algorithms protecting the water pump and electrical lines from high-current draw and dry-run damage.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>DYNAMIC TRIP CALIBRATION</span><br> 
+                        Allows administrators to manually set absolute max-current thresholds (e.g., 20 Amps) based on the specific motor rating.
+                    </li>
+                    <li>
+                        <span>HARDWARE HALT</span><br> 
+                        If the ADC detects an overcurrent spike, the microcontroller instantly severs relay power to prevent coil burnout.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="SSSWMS Motor starter Schedule timer.jpg" alt="NTP Daily Scheduler">
+            </div>
+            <div class="product-info">
+                <h2>Autonomous Daily Scheduling</h2>
+                <p class="description">Set-and-forget daily routines that run entirely on the hardware edge to automate complex watering schedules.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>NTP TIME SYNCHRONIZATION</span><br> 
+                        Pulls exact Indian Standard Time (IST) from global NTP servers, ensuring schedules execute flawlessly down to the minute.
+                    </li>
+                    <li>
+                        <span>MULTI-SLOT ROUTING</span><br> 
+                        Configure independent Start and Stop times across different periods of the day directly through the mobile interface.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="SSSWMS Motor starter log page.jpg" alt="System Event Logs">
+            </div>
+            <div class="product-info">
+                <h2>System Event Auditing</h2>
+                <p class="description">A built-in diagnostic terminal that tracks every single state change and network event in real-time.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>TIME-STAMPED AUDIT TRAIL</span><br> 
+                        Records exactly when the motor was started, when timers expired, and if the trigger came from the App (HTTP) or a Physical Hardware Button.
+                    </li>
+                    <li>
+                        <span>RAPID FAULT ISOLATION</span><br> 
+                        Allows field technicians to read the internal state of the microcontroller to quickly diagnose power issues or missed schedules.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="SSSWMS Motor starter setting page.jpg" alt="Settings Configuration Menu">
+            </div>
+            <div class="product-info">
+                <h2>Centralized Configuration</h2>
+                <p class="description">A structured, mobile-first administrative hub giving complete control over device parameters and network routing.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>COLLAPSIBLE ACCORDION UI</span><br> 
+                        Keeps complex industrial settings neatly organized into distinct categories for easy navigation on small smartphone screens.
+                    </li>
+                    <li>
+                        <span>SECURE ACCESS</span><br> 
+                        Centralizes critical features like WiFi setup and Hardware Resets into one location, preventing accidental triggers on the home page.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="SSSWMS Motor starter wifi set-up sta.jpg" alt="Router WiFi Setup">
+            </div>
+            <div class="product-info">
+                <h2>Cloud & NTP Connectivity (STA Mode)</h2>
+                <p class="description">Securely connects the edge device to existing local infrastructure for global access and time synchronization.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>INTERNET TIME SCHEDULER</span><br> 
+                        By connecting to the local router, the device achieves precise time-sync required for the autonomous daily schedules.
+                    </li>
+                    <li>
+                        <span>SECURE CREDENTIAL STORAGE</span><br> 
+                        Safely writes the user's WiFi credentials (SSID and Password) directly to the ESP's non-volatile memory (EEPROM).
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="SSSWMS Motor starter wifi setup Ap.jpg" alt="Device Hotspot Setup">
+            </div>
+            <div class="product-info">
+                <h2>Air-Gapped Hotspot (AP Mode)</h2>
+                <p class="description">Ensures the device remains completely operational and accessible even if the internet goes down or no router is available.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>CUSTOM BROADCAST</span><br> 
+                        Allows the user to rename the device's internal WiFi network (e.g., 'Mayur's-Pump') and set a custom security password.
+                    </li>
+                    <li>
+                        <span>DIRECT PHONE-TO-DEVICE CONTROL</span><br> 
+                        Operate the motor starter out in a remote agricultural field with zero cellular signal or internet connection.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="SSSWMS Motor starter hardware info.jpg" alt="Core Hardware Analytics">
+            </div>
+            <div class="product-info">
+                <h2>Deep Hardware Analytics</h2>
+                <p class="description">Total transparency into the microcontroller's health, memory, and firmware version.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>MEMORY & UPTIME TRACKING</span><br> 
+                        Live tracking of Free RAM (e.g., 31 KB) and total system uptime (e.g., 2h 42m) to monitor stability and prevent buffer overflows.
+                    </li>
+                    <li>
+                        <span>DEVICE IDENTIFICATION</span><br> 
+                        Displays the unique MAC Address and Chip ID, critical for registering the device on commercial MQTT brokers or cloud databases.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
