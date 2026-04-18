@@ -31,10 +31,9 @@
             margin-bottom: 5rem;
         }
 
-        /* FONT 1: TEKO (For the massive top brand headline) */
         header h1 {
             font-family: 'Teko', sans-serif;
-            font-size: 5rem; /* Teko is compressed, so we can make it huge */
+            font-size: 5rem; 
             color: #00f0ff;
             text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
             letter-spacing: 4px;
@@ -42,7 +41,6 @@
             line-height: 1;
         }
 
-        /* FONT 2: RAJDHANI (For the sleek tech subtitle) */
         header p {
             font-family: 'Rajdhani', sans-serif;
             color: #94a3b8;
@@ -99,7 +97,6 @@
             flex: 1.2;
         }
 
-        /* FONT 3: ORBITRON (For the cyberpunk product headlines) */
         .product-info h2 {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.2rem;
@@ -109,7 +106,6 @@
             letter-spacing: 1px;
         }
 
-        /* FONT 4: POPPINS (For clean, readable descriptions) */
         .product-info p.description {
             font-family: 'Poppins', sans-serif;
             font-size: 1.1rem;
@@ -135,7 +131,6 @@
             padding-bottom: 0;
         }
 
-        /* RAJDHANI reused for the highlight tags to make them pop */
         .settings-list span {
             color: #00f0ff;
             font-weight: 700;
@@ -204,6 +199,30 @@
                     <li>
                         <span>RESPONSIVE ARCHITECTURE</span><br> 
                         Built with asynchronous APIs, allowing the UI state to update instantly without ever requiring a page reload.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="Nexus 4 hardware pcb.jpg" alt="Nexus 4 Custom PCB Design">
+            </div>
+            <div class="product-info">
+                <h2>Custom PCB Architecture</h2>
+                <p class="description">Engineered from the ground up, the Nexus 4 features a robust, mass-production-ready printed circuit board designed for industrial reliability.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>HIGH-VOLTAGE ISOLATION</span><br> 
+                        Strategic component placement and routed PCB isolation slots safely separate the 220V AC mains from the low-voltage ESP logic.
+                    </li>
+                    <li>
+                        <span>INTEGRATED SMPS</span><br> 
+                        Features a built-in Switch Mode Power Supply section, eliminating the need for external adapters and ensuring stable power delivery.
+                    </li>
+                    <li>
+                        <span>PRODUCTION-READY DFM</span><br> 
+                        Optimized 2D trace routing, precise footprint mapping, and full 3D modeling ensure a seamless transition from prototyping to mass manufacturing.
                     </li>
                 </ul>
             </div>
