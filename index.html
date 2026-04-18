@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astatine Technologies | Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Dark Theme setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #050505;
+            background-image: radial-gradient(circle at top, #111a2e 0%, #050505 100%);
+            color: #f8fafc;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        /* Top Header */
+        header {
+            text-align: center;
+            margin-top: 2rem;
+            margin-bottom: 5rem;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3.5rem;
+            color: #00f0ff;
+            text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Container for all products */
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6rem; /* Space between product sections */
+            padding-bottom: 5rem;
+        }
+
+        /* Individual Product Card */
+        .product-card {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 4rem;
+            background: rgba(24, 24, 27, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 240, 255, 0.15);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Picture on the Left */
+        .product-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            border: 1px solid rgba(255,255,255,0.05);
+            background: #000;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Explanation on the Right */
+        .product-info {
+            flex: 1.2;
+        }
+
+        .product-info h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .product-info p.description {
+            font-size: 1.1rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        /* Settings List */
+        .settings-list {
+            list-style: none;
+        }
+
+        .settings-list li {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .settings-list li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .settings-list span {
+            color: #00f0ff;
+            font-weight: 600;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 0.3rem;
+            letter-spacing: 1px;
+        }
+
+        /* Mobile View: Stack them with picture on top, text below */
+        @media (max-width: 900px) {
+            .product-card {
+                flex-direction: column;
+                padding: 1.5rem;
+                gap: 2rem;
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Astatine Technologies</h1>
+        <p>Nexus System Dashboard & UI Portfolio</p>
+    </header>
+
+    <div class="portfolio-container">
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="Nexus-mainhomepage.jpg" alt="Main Home Page UI">
+            </div>
+            <div class="product-info">
+                <h2>Main Control Hub</h2>
+                <p class="description">The primary home screen designed to give an instant overview of the entire system. It provides real-time control and displays active automations seamlessly.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>4-CHANNEL CONTROL</span><br> 
+                        Instantly toggle up to four separate devices or relays directly from the dashboard with zero latency.
+                    </li>
+                    <li>
+                        <span>AUTOMATION VISIBILITY</span><br> 
+                        Quickly see exactly what automation (like timers or solar schedules) is currently active for each specific device.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="Nexus 4 solar automation.jpg" alt="Solar Automation UI">
+            </div>
+            <div class="product-info">
+                <h2>Solar Automation</h2>
+                <p class="description">A highly advanced automation feature that calculates local sunrise and sunset times directly on the edge device, requiring no active internet connection.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>OFFLINE CALCULATION</span><br> 
+                        Uses an onboard DS1307 RTC and complex solar math to autonomously trigger relays based on the sun's position.
+                    </li>
+                    <li>
+                        <span>CUSTOM OFFSETS</span><br> 
+                        Allows users to add a specific time offset (e.g., turn on lights exactly 30 minutes *before* sunset) for perfect ambient control.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="nexus 4 shedule timer.jpg" alt="Schedule Timer UI">
+            </div>
+            <div class="product-info">
+                <h2>Precision Scheduling</h2>
+                <p class="description">A robust daily routing system allowing users to set absolute clock times for devices to turn on and off.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>RTC INTEGRATION</span><br> 
+                        Schedules are strictly tied to the hardware clock, ensuring they execute flawlessly even if the Wi-Fi network goes down.
+                    </li>
+                    <li>
+                        <span>MULTI-CHANNEL ROUTING</span><br> 
+                        Each of the 4 relay channels can have its own independent schedule programmed directly through the glassmorphic interface.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="Nexus 4 countdown timer.jpg" alt="Countdown Timer UI">
+            </div>
+            <div class="product-info">
+                <h2>Smart Countdown & Sleep</h2>
+                <p class="description">Intuitive duration-based timers to automate short-term tasks and ensure energy efficiency.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>COUNTDOWN TIMER</span><br> 
+                        Set a specific duration (in hours and minutes). The system counts down and toggles the relay when the time expires.
+                    </li>
+                    <li>
+                        <span>SLEEP FUNCTIONALITY</span><br> 
+                        Ensures heavy-draw devices do not run indefinitely by automatically cutting power after the specified duration is reached.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="Nexus 4 logs.jpg" alt="Logs and Diagnostics UI">
+            </div>
+            <div class="product-info">
+                <h2>Deep System Diagnostics</h2>
+                <p class="description">A built-in terminal that allows field technicians and users to view the raw state of the microcontroller directly from their phone browser.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>ACTIVITY FEED</span><br> 
+                        A rolling log of every action taken by the system, tracking user inputs, automated triggers, and sensor errors.
+                    </li>
+                    <li>
+                        <span>HARDWARE HEALTH</span><br> 
+                        Displays live Heap memory, I2C bus status, CPU frequency, and Wi-Fi RSSI strength to aid in rapid fault isolation.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="nexus 4 setting.jpg" alt="Core Settings UI">
+            </div>
+            <div class="product-info">
+                <h2>System Configuration</h2>
+                <p class="description">The administrative backend of the Nexus 4 dashboard, providing deep customization and secure maintenance options.</p>
+                <ul class="settings-list">
+                    <li>
+                        <span>UI CUSTOMIZATION</span><br> 
+                        Allows users to rename individual channels and adjust the overall dashboard theme color to fit their environment.
+                    </li>
+                    <li>
+                        <span>FACTORY RESET & OTA</span><br> 
+                        Secure commands to wipe EEPROM configurations and reboot the device into AP mode, or safely apply Over-The-Air firmware updates.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
