@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Astatine Technologies | Portfolio</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;400;600&family=Teko:wght@600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
     
     <style>
         /* Base Dark Theme setup */
@@ -31,19 +31,25 @@
             margin-bottom: 5rem;
         }
 
+        /* FONT 1: TEKO (For the massive top brand headline) */
         header h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 3.5rem;
+            font-family: 'Teko', sans-serif;
+            font-size: 5rem; /* Teko is compressed, so we can make it huge */
             color: #00f0ff;
             text-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            line-height: 1;
         }
 
+        /* FONT 2: RAJDHANI (For the sleek tech subtitle) */
         header p {
+            font-family: 'Rajdhani', sans-serif;
             color: #94a3b8;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
             margin-top: 0.5rem;
+            text-transform: uppercase;
         }
 
         /* Container for all products */
@@ -52,7 +58,7 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            gap: 6rem; /* Space between product sections */
+            gap: 6rem;
             padding-bottom: 5rem;
         }
 
@@ -93,15 +99,19 @@
             flex: 1.2;
         }
 
+        /* FONT 3: ORBITRON (For the cyberpunk product headlines) */
         .product-info h2 {
             font-family: 'Orbitron', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #ffffff;
             margin-bottom: 1rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
+        /* FONT 4: POPPINS (For clean, readable descriptions) */
         .product-info p.description {
+            font-family: 'Poppins', sans-serif;
             font-size: 1.1rem;
             color: #94a3b8;
             margin-bottom: 2rem;
@@ -113,6 +123,7 @@
         }
 
         .settings-list li {
+            font-family: 'Poppins', sans-serif;
             margin-bottom: 1.5rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -124,26 +135,44 @@
             padding-bottom: 0;
         }
 
+        /* RAJDHANI reused for the highlight tags to make them pop */
         .settings-list span {
             color: #00f0ff;
-            font-weight: 600;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.3rem;
             display: inline-block;
             margin-bottom: 0.3rem;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
-        /* Mobile View: Stack them with picture on top, text below */
+        /* ================= RESPONSIVE MOBILE OPTIMIZATION ================= */
+        
         @media (max-width: 900px) {
             .product-card {
                 flex-direction: column;
-                padding: 1.5rem;
-                gap: 2rem;
+                padding: 2rem;
+                gap: 2.5rem;
+            }
+            .portfolio-container {
+                gap: 4rem; 
             }
             header h1 {
-                font-size: 2.5rem;
+                font-size: 4rem;
             }
+        }
+
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            header { margin-top: 1rem; margin-bottom: 3rem; }
+            header h1 { font-size: 3.5rem; line-height: 1.1; }
+            header p { font-size: 1.1rem; padding: 0 1rem; }
+            .portfolio-container { gap: 3rem; }
+            .product-card { padding: 1.25rem; gap: 1.5rem; border-radius: 16px; }
+            .product-info h2 { font-size: 1.6rem; margin-bottom: 0.5rem; }
+            .product-info p.description { font-size: 0.95rem; margin-bottom: 1.5rem; }
+            .settings-list li { font-size: 0.9rem; margin-bottom: 1rem; padding-bottom: 1rem; }
+            .settings-list span { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -172,6 +201,10 @@
                         <span>AUTOMATION VISIBILITY</span><br> 
                         Quickly see exactly what automation (like timers or solar schedules) is currently active for each specific device.
                     </li>
+                    <li>
+                        <span>RESPONSIVE ARCHITECTURE</span><br> 
+                        Built with asynchronous APIs, allowing the UI state to update instantly without ever requiring a page reload.
+                    </li>
                 </ul>
             </div>
         </div>
@@ -191,6 +224,10 @@
                     <li>
                         <span>CUSTOM OFFSETS</span><br> 
                         Allows users to add a specific time offset (e.g., turn on lights exactly 30 minutes *before* sunset) for perfect ambient control.
+                    </li>
+                    <li>
+                        <span>SENSOR FUSION</span><br> 
+                        Hardware integrates seamlessly with I2C BMP280 sensors to cross-reference temperature and pressure data alongside the solar schedule.
                     </li>
                 </ul>
             </div>
@@ -212,6 +249,10 @@
                         <span>MULTI-CHANNEL ROUTING</span><br> 
                         Each of the 4 relay channels can have its own independent schedule programmed directly through the glassmorphic interface.
                     </li>
+                    <li>
+                        <span>POWER-LOSS RECOVERY</span><br> 
+                        Variables are safely written to LittleFS/EEPROM, allowing the system to instantly resume schedules after grid power cuts.
+                    </li>
                 </ul>
             </div>
         </div>
@@ -231,6 +272,10 @@
                     <li>
                         <span>SLEEP FUNCTIONALITY</span><br> 
                         Ensures heavy-draw devices do not run indefinitely by automatically cutting power after the specified duration is reached.
+                    </li>
+                    <li>
+                        <span>NON-BLOCKING LOGIC</span><br> 
+                        Engineered with custom millis() tracking, allowing countdowns to process in the background without freezing the system loop.
                     </li>
                 </ul>
             </div>
@@ -252,6 +297,10 @@
                         <span>HARDWARE HEALTH</span><br> 
                         Displays live Heap memory, I2C bus status, CPU frequency, and Wi-Fi RSSI strength to aid in rapid fault isolation.
                     </li>
+                    <li>
+                        <span>OTA READY</span><br> 
+                        Secure boot capabilities allowing over-the-air firmware flashes directly through the local network without physical access.
+                    </li>
                 </ul>
             </div>
         </div>
@@ -269,8 +318,12 @@
                         Allows users to rename individual channels and adjust the overall dashboard theme color to fit their environment.
                     </li>
                     <li>
-                        <span>FACTORY RESET & OTA</span><br> 
-                        Secure commands to wipe EEPROM configurations and reboot the device into AP mode, or safely apply Over-The-Air firmware updates.
+                        <span>FACTORY RESET</span><br> 
+                        Secure commands to wipe EEPROM configurations and reboot the device safely back to factory parameters.
+                    </li>
+                    <li>
+                        <span>AP FALLBACK MODE</span><br> 
+                        Automatically transitions the device into its own Access Point (AP) if the local router drops, ensuring you never lose control.
                     </li>
                 </ul>
             </div>
